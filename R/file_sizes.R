@@ -156,8 +156,8 @@ file_size_shiny <- function(input, output, session, file_sizes = sizes_log) {
 
   output$range_info <- shiny::renderText({
     sprintf("%.01f %% percent of files are between selected range %s and %s.",
+            range_size_percentage(file_sizes, input$size_range) * 100,
             size_log_si(input$size_range[1]),
-            size_log_si(input$size_range[2]),
-            range_size_percentage(file_sizes, input$size_range) * 100)
+            size_log_si(input$size_range[2]))
   })
 }
