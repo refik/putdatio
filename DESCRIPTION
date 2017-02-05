@@ -18,4 +18,5 @@ Imports:
   KernSmooth,
   purrr,
   shiny,
+  ggplot2,
   readr

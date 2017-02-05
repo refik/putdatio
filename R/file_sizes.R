@@ -105,7 +105,7 @@ file_size_shiny_ui <- function(id) {
           shiny::sliderInput(
             ns("size_range"), step = 0.1,
             label = shiny::h3("File Size Range"),
-            min = 0.5, max = 3.5, value = c(0.5, 2)),
+            min = 0.5, max = 3.5, value = c(0.5, 2.5)),
           shiny::textOutput(ns("scale_info"))
         ),
         shiny::textOutput(ns("range_info"))
@@ -155,7 +155,7 @@ file_size_shiny <- function(input, output, session, file_sizes = sizes_log) {
   })
 
   output$range_info <- shiny::renderText({
-    sprintf("Percentage of files between selected range %s and %s is %.01f %%",
+    sprintf("%.01f %% percent of files are between selected range %s and %s.",
             size_log_si(input$size_range[1]),
             size_log_si(input$size_range[2]),
             range_size_percentage(file_sizes, input$size_range) * 100)
